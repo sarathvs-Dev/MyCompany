@@ -3,22 +3,26 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import ContactForm from './ContactForm';
+import { site, telHref, mailHref } from '../siteConfig';
 
+// href set where it makes sense: on a phone, a tappable number and address are
+// the difference between a call and a copy-paste.
 const details = [
-  { icon: Phone, label: 'Phone Number', value: '+1 (555) 123-4567' },
-  { icon: Mail, label: 'Email Address', value: 'hello@tbf.com' },
+  { icon: Phone, label: 'Phone Number', value: site.phone, href: telHref },
+  { icon: Mail, label: 'Email Address', value: site.email, href: mailHref },
   {
     icon: MapPin,
     label: 'Office Location',
     value: (
       <>
-        123 Innovation Drive,
+        {site.address[0]}
         <br />
-        Tech District, SF 94105
+        {site.address[1]}
       </>
     ),
+    href: `https://maps.google.com/?q=${encodeURIComponent(site.address.join(' '))}`,
   },
-  { icon: Clock, label: 'Business Hours', value: 'Mon - Fri: 9:00 AM - 6:00 PM' },
+  { icon: Clock, label: 'Business Hours', value: site.hours },
 ];
 
 const Contact = () => {
@@ -35,14 +39,26 @@ const Contact = () => {
             />
 
             <div className="mt-10 space-y-5">
-              {details.map(({ icon: Icon, label, value }) => (
+              {details.map(({ icon: Icon, label, value, href }) => (
                 <div key={label} className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-primary/[0.07] text-primary flex items-center justify-center shrink-0">
                     <Icon size={17} />
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-secondary mb-0.5">{label}</h4>
-                    <p className="text-sm text-secondary/55 leading-relaxed">{value}</p>
+                    {href ? (
+                      <a
+                        href={href}
+                        {...(href.startsWith('http')
+                          ? { target: '_blank', rel: 'noreferrer' }
+                          : {})}
+                        className="text-sm text-secondary/55 leading-relaxed hover:text-primary transition-colors"
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      <p className="text-sm text-secondary/55 leading-relaxed">{value}</p>
+                    )}
                   </div>
                 </div>
               ))}

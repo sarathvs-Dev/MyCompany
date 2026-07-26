@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Facebook, Twitter, Linkedin, Instagram, ArrowRight } from 'lucide-react';
 import Logo from './Logo';
+import { site } from '../siteConfig';
 
 const NEWSLETTER_ENDPOINT = import.meta.env.VITE_NEWSLETTER_ENDPOINT;
-const CONTACT_EMAIL = 'hello@tbf.com';
+const CONTACT_EMAIL = site.email;
 
-// TODO: swap the placeholder hrefs for the real profiles
+// Only the profiles that have a URL in siteConfig get rendered — an icon that
+// links to "#" and bounces you to the top of the page is worse than no icon.
 const socials = [
-  { icon: Linkedin, label: 'LinkedIn', href: '#' },
-  { icon: Twitter, label: 'Twitter', href: '#' },
-  { icon: Facebook, label: 'Facebook', href: '#' },
-  { icon: Instagram, label: 'Instagram', href: '#' },
-];
+  { icon: Linkedin, label: 'LinkedIn', href: site.socials.linkedin },
+  { icon: Twitter, label: 'Twitter', href: site.socials.twitter },
+  { icon: Facebook, label: 'Facebook', href: site.socials.facebook },
+  { icon: Instagram, label: 'Instagram', href: site.socials.instagram },
+].filter((s) => s.href);
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -57,11 +59,13 @@ const Footer = () => {
             <p className="text-gray-400 mb-6 leading-relaxed">
               We build scalable, high-performance websites and web applications for businesses that demand excellence.
             </p>
-            <ul className="flex gap-3">
+            <ul className="flex gap-3 empty:hidden">
               {socials.map(({ icon: Icon, label, href }) => (
                 <li key={label}>
                   <a
                     href={href}
+                    target="_blank"
+                    rel="noreferrer"
                     aria-label={`TBF on ${label}`}
                     className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-colors"
                   >

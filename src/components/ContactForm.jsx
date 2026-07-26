@@ -10,7 +10,9 @@ import { ArrowRight, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
  * reaches us instead of vanishing into a button that does nothing.
  */
 
-const CONTACT_EMAIL = 'hello@tbf.com';
+import { site } from '../siteConfig';
+
+const CONTACT_EMAIL = site.email;
 const ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT;
 
 const SERVICES = [
