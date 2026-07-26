@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Facebook, Twitter, Linkedin, Instagram, ArrowRight } from 'lucide-react';
+import { Linkedin, Instagram, ArrowRight } from 'lucide-react';
 import Logo from './Logo';
-import { site } from '../siteConfig';
+import { site, telHref, mailHref } from '../siteConfig';
 
 const NEWSLETTER_ENDPOINT = import.meta.env.VITE_NEWSLETTER_ENDPOINT;
 const CONTACT_EMAIL = site.email;
@@ -10,8 +10,6 @@ const CONTACT_EMAIL = site.email;
 // links to "#" and bounces you to the top of the page is worse than no icon.
 const socials = [
   { icon: Linkedin, label: 'LinkedIn', href: site.socials.linkedin },
-  { icon: Twitter, label: 'Twitter', href: site.socials.twitter },
-  { icon: Facebook, label: 'Facebook', href: site.socials.facebook },
   { icon: Instagram, label: 'Instagram', href: site.socials.instagram },
 ].filter((s) => s.href);
 
@@ -56,9 +54,30 @@ const Footer = () => {
             <a href="#home" className="inline-block mb-6" aria-label="TBF — Together Build Future">
               <Logo className="h-24 w-auto" withTagline onDark />
             </a>
-            <p className="text-gray-400 mb-6 leading-relaxed">
-              We build scalable, high-performance websites and web applications for businesses that demand excellence.
+            <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+              IT solutions that build your future — web, mobile and cloud, built by the people you
+              actually talk to.
             </p>
+
+            <div className="flex flex-col gap-1.5 mb-6 text-sm">
+              <a
+                href={mailHref}
+                className="text-slate-400 hover:text-primary transition-colors w-fit"
+              >
+                {site.email}
+              </a>
+              {site.phones.map((phone) => (
+                <a
+                  key={phone}
+                  href={telHref(phone)}
+                  className="text-slate-400 hover:text-primary transition-colors w-fit"
+                >
+                  {phone}
+                </a>
+              ))}
+              <p className="text-slate-500 pt-1">{site.location}</p>
+            </div>
+
             <ul className="flex gap-3 empty:hidden">
               {socials.map(({ icon: Icon, label, href }) => (
                 <li key={label}>

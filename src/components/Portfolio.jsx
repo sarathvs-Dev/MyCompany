@@ -9,48 +9,50 @@ const Portfolio = () => {
 
   const filters = ['All', 'Web App', 'E-Commerce', 'Corporate'];
 
+  // Categories of work we're set up to deliver — not past client projects.
+  // The photography illustrates the sector, it is not a screenshot of shipped work.
   const projects = [
     {
       id: 1,
-      title: 'Fashion E-Commerce Platform',
+      title: 'E-Commerce Storefronts',
       category: 'E-Commerce',
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop',
-      desc: 'A high-converting scalable e-commerce store with modern UI.'
+      desc: 'Product catalogues, checkout and payments, built to convert and to scale with your catalogue.'
     },
     {
       id: 2,
-      title: 'SaaS Dashboard',
+      title: 'SaaS Dashboards',
       category: 'Web App',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
-      desc: 'Analytics dashboard with real-time data visualization.'
+      desc: 'Data-heavy interfaces: charts, tables, filters and role-based access that stay fast as data grows.'
     },
     {
       id: 3,
-      title: 'Corporate Business Portal',
+      title: 'Corporate Sites & Portals',
       category: 'Corporate',
       image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
-      desc: 'Enterprise portal for internal communication and management.'
+      desc: 'Marketing sites and internal portals with a CMS your team can actually update without us.'
     },
     {
       id: 4,
-      title: 'Electronics Marketplace',
+      title: 'Marketplaces',
       category: 'E-Commerce',
       image: 'https://images.unsplash.com/photo-1531297172867-4f50efd06584?q=80&w=2070&auto=format&fit=crop',
-      desc: 'Multi-vendor electronics marketplace with complex filtering.'
+      desc: 'Multi-vendor platforms with search, faceted filtering, seller accounts and split payments.'
     },
     {
       id: 5,
-      title: 'Real Estate Website',
+      title: 'Listing & Booking Platforms',
       category: 'Corporate',
       image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop',
-      desc: 'Property listing platform with interactive maps.'
+      desc: 'Property, travel or service listings with maps, availability and enquiry handling.'
     },
     {
       id: 6,
-      title: 'Restaurant Order System',
+      title: 'Ordering & Reservation Apps',
       category: 'Web App',
       image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop',
-      desc: 'Online ordering and table reservation application.'
+      desc: 'Online ordering, table or slot reservations, and a kitchen or admin view to manage them.'
     }
   ];
 
@@ -62,9 +64,9 @@ const Portfolio = () => {
     <section id="portfolio" className="section bg-white">
       <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeading
-          kicker="Our Work"
-          title={<>Explore our <span className="text-primary">portfolio</span></>}
-          sub="A showcase of our best work across various industries."
+          kicker="What We Build"
+          title={<>The kind of work we <span className="text-primary">take on</span></>}
+          sub="We launched in 2026, so there are no client case studies here yet — this is what we are set up to build. Yours could be the first one on this page."
           className="mb-12"
         />
 
@@ -112,7 +114,7 @@ const Portfolio = () => {
                         until then this goes somewhere useful rather than to "#" */}
                     <a
                       href="#contact"
-                      aria-label={`Ask us about ${project.title}`}
+                      aria-label={`Start a ${project.title} project`}
                       className="w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100 self-end mb-4 hover:bg-blue-700"
                     >
                       <ExternalLink size={18} />

@@ -223,7 +223,7 @@ const ContactForm = () => {
               value={values.phone}
               onChange={update('phone')}
               className={inputClass(false)}
-              placeholder="+1 (555) 000-0000"
+              placeholder="+91 00000 00000"
             />
           </Field>
         </div>

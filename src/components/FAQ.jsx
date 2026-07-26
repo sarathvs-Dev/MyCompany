@@ -8,6 +8,10 @@ const FAQ = () => {
 
   const faqs = [
     {
+      q: 'You launched in 2026 — why should I hire a new studio?',
+      a: "Fair question, and we'd rather answer it here than have you wonder. We don't have a client list yet, so we compete on the things a bigger agency can't offer: you deal with the founder directly, we take on very few projects at once, and early clients get founding-client pricing. We also design a custom homepage mockup for free before you commit to anything — so you can judge the work rather than take our word for it.",
+    },
+    {
       q: 'How long does a project take?',
       a: 'Project timelines vary depending on complexity and scope. A standard corporate website might take 4-6 weeks, while a custom web application or complex e-commerce platform can take 3-6 months. We provide detailed timelines during the discovery phase.'
     },

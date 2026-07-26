@@ -11,7 +11,7 @@ const WhyChooseUs = () => {
     { icon: <Gauge />, title: 'Fast Performance', desc: 'Lightning-fast load times' },
     { icon: <ShieldCheck />, title: 'Secure Development', desc: 'Industry-standard security practices' },
     { icon: <Zap />, title: 'Scalable Architecture', desc: 'Grows alongside your business' },
-    { icon: <HeadphonesIcon />, title: 'Dedicated Support', desc: '24/7 technical assistance' },
+    { icon: <HeadphonesIcon />, title: 'Direct Support', desc: 'A line to whoever built it' },
     { icon: <PiggyBank />, title: 'Affordable Solutions', desc: 'Premium quality, reasonable pricing' },
   ];
 
@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
               align="left"
               kicker="Why Choose Us"
               title={<>We deliver <span className="text-accent">excellence</span> in every pixel</>}
-              sub="Partner with a team that treats your business like their own. We combine technical expertise with strategic thinking to deliver solutions that drive real results."
+              sub="A new studio with experienced hands. We combine technical depth with strategic thinking, and we're small enough that your project never becomes someone's side task."
               className="mx-auto lg:mx-0 text-center lg:text-left"
             />
             <a

@@ -5,24 +5,34 @@ import SectionHeading from './SectionHeading';
 import ContactForm from './ContactForm';
 import { site, telHref, mailHref } from '../siteConfig';
 
-// href set where it makes sense: on a phone, a tappable number and address are
-// the difference between a call and a copy-paste.
+// Everything tappable: on a phone, a plain-text number means copy-paste instead
+// of a call. Each number gets its own tel: link.
 const details = [
-  { icon: Phone, label: 'Phone Number', value: site.phone, href: telHref },
-  { icon: Mail, label: 'Email Address', value: site.email, href: mailHref },
+  {
+    icon: Phone,
+    label: site.phones.length > 1 ? 'Phone' : 'Phone Number',
+    lines: site.phones.map((phone) => ({ text: phone, href: telHref(phone) })),
+  },
+  {
+    icon: Mail,
+    label: 'Email Address',
+    lines: [{ text: site.email, href: mailHref }],
+  },
   {
     icon: MapPin,
-    label: 'Office Location',
-    value: (
-      <>
-        {site.address[0]}
-        <br />
-        {site.address[1]}
-      </>
-    ),
-    href: `https://maps.google.com/?q=${encodeURIComponent(site.address.join(' '))}`,
+    label: 'Location',
+    lines: [
+      {
+        text: site.location,
+        href: `https://maps.google.com/?q=${encodeURIComponent(site.location)}`,
+      },
+    ],
   },
-  { icon: Clock, label: 'Business Hours', value: site.hours },
+  {
+    icon: Clock,
+    label: 'Business Hours',
+    lines: [{ text: site.hours }],
+  },
 ];
 
 const Contact = () => {
@@ -39,26 +49,33 @@ const Contact = () => {
             />
 
             <div className="mt-10 space-y-5">
-              {details.map(({ icon: Icon, label, value, href }) => (
+              {details.map(({ icon: Icon, label, lines }) => (
                 <div key={label} className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-primary/[0.07] text-primary flex items-center justify-center shrink-0">
                     <Icon size={17} />
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-secondary mb-0.5">{label}</h4>
-                    {href ? (
-                      <a
-                        href={href}
-                        {...(href.startsWith('http')
-                          ? { target: '_blank', rel: 'noreferrer' }
-                          : {})}
-                        className="text-sm text-secondary/55 leading-relaxed hover:text-primary transition-colors"
-                      >
-                        {value}
-                      </a>
-                    ) : (
-                      <p className="text-sm text-secondary/55 leading-relaxed">{value}</p>
-                    )}
+                    <div className="flex flex-col">
+                      {lines.map(({ text, href }) =>
+                        href ? (
+                          <a
+                            key={text}
+                            href={href}
+                            {...(href.startsWith('http')
+                              ? { target: '_blank', rel: 'noreferrer' }
+                              : {})}
+                            className="text-sm text-secondary/55 leading-relaxed hover:text-primary transition-colors w-fit"
+                          >
+                            {text}
+                          </a>
+                        ) : (
+                          <p key={text} className="text-sm text-secondary/55 leading-relaxed">
+                            {text}
+                          </p>
+                        )
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}

@@ -36,14 +36,16 @@ const About = () => {
             </div>
             
             {/* Experience Badge */}
+            {/* was "5+ Years of Excellence", which contradicted "launched in 2026"
+                two sections above it */}
             <div className="absolute -bottom-6 -right-6 card p-5 shadow-[0_16px_40px_-20px_rgba(15,23,42,0.35)] hidden md:block">
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-full bg-primary/[0.07] flex items-center justify-center text-primary font-bold">
-                  5+
+                <div className="w-12 h-12 rounded-full bg-primary/[0.07] flex items-center justify-center text-primary font-bold text-sm">
+                  2026
                 </div>
                 <div>
-                  <div className="text-secondary text-sm font-semibold">Years of</div>
-                  <div className="text-secondary/50 text-sm">Excellence</div>
+                  <div className="text-secondary text-sm font-semibold">Founded</div>
+                  <div className="text-secondary/50 text-sm">Taking first clients</div>
                 </div>
               </div>
             </div>
@@ -60,7 +62,7 @@ const About = () => {
               align="left"
               kicker="About Us"
               title={<>We build websites that <span className="text-primary">businesses love</span></>}
-              sub="At TBF (Together Build Future), we specialize in delivering enterprise-grade web development, scalable e-commerce solutions, and custom software. We blend cutting-edge technology with stunning design to help our clients stand out in the digital landscape."
+              sub="TBF (Together Build Future) is a founder-led studio building web applications, e-commerce platforms and custom software. We're new — which means your project gets built by the person you actually talk to, with the care that comes from needing to earn a reputation."
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 mt-10 mb-10">

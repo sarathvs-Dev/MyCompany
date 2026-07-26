@@ -9,8 +9,7 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Portfolio from './components/Portfolio';
 import Process from './components/Process';
 import Technologies from './components/Technologies';
-import Testimonials from './components/Testimonials';
-import CaseStudy from './components/CaseStudy';
+import FoundingClients from './components/FoundingClients';
 import FAQ from './components/FAQ';
 import CTA from './components/CTA';
 import Contact from './components/Contact';
@@ -41,10 +40,9 @@ function App() {
         <Services />
         <WhyChooseUs />
         <Portfolio />
-        <CaseStudy />
         <Process />
         <Technologies />
-        <Testimonials />
+        <FoundingClients />
         <FAQ />
         <CTA />
         <Contact />
